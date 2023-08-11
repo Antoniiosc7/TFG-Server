@@ -20,3 +20,6 @@ tennis_API.register(app,db_tennis);
 
 const tennis_APIv2 = require("./src/tennisv2.js");
 tennis_APIv2.register(app,db_tennis2);
+
+const twitch = require("./src/tennistwitch.js");
+twitch.register(app);
