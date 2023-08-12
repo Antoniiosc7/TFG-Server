@@ -18,8 +18,18 @@ db_tennis2 = new Datastore();
 const tennis_API = require("./src/tennis.js");
 tennis_API.register(app,db_tennis);
 
-const tennis_APIv2 = require("./src/tennisv2.js");
+const tennis_APIv2 = require("./src/tennisv2.js"); 
 tennis_APIv2.register(app,db_tennis2);
 
 const twitch = require("./src/tennistwitch.js");
 twitch.register(app);
+
+db_premier = new Datastore();
+const premierAPI = require("./src/premier-league.js"); 
+premierAPI.register(app,db_premier);
+
+const tennislivedata = require("./src/tennislivedata");
+tennislivedata.register(app);
+
+const tennisWomen = require("./src/tennisWomen");
+tennisWomen.register(app);

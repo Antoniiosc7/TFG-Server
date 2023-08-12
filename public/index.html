@@ -1,25 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset='utf-8'>
-        <meta name='viewport' content='width=device-width,initial-scale=1'>
-    
-        <title>TFG Antonio</title>
-    
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
-        <link rel='icon' type='image/png' href='/favicon.png'>
-        <link rel='stylesheet' href='/global.css'>
-        <link rel='stylesheet' href='/build/bundle.css'>
-    
-        <h1>APIS:</h1>
-        <a href="/api/v1/tennis">/api/v1/tennis</a><br>
-        <a href="/api/v2/tennis">/api/v1/tennis</a><br>
-        <a href="/api/v1/tennis-twitch">/api/v1/tennis-twitch</a><br>
-    </head>
-
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Enlaces a APIs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
 <body>
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Página de Enlaces</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="46.183.118.200:8081">Web Svelte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="46.183.118.200:8080">Web Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Web Vue</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Web React</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">API v1 Tennis</h5>
+                        <p class="card-text">Accede a la API v1 de Tenis.</p>
+                        <a href="/api/v1/tennis" class="btn btn-primary">Ir a la API</a>
+                        <a href="#" class="btn btn-primary">Documentación</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">API v2 Tennis</h5>
+                        <p class="card-text">Accede a la API v2 de Tenis.</p>
+                        <a href="/api/v2/tennis" class="btn btn-primary">Ir a la API</a>
+                        <a href="#" class="btn btn-primary">Documentación</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">API v2 Premier League</h5>
+                        <p class="card-text">Accede a la API v2 de Premier League.</p>
+                        <a href="/api/v2/premier-league" class="btn btn-primary">Ir a la API</a>
+                        <a href="#" class="btn btn-primary">Documentación</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tennis Live Ranking</h5>
+                        <p class="card-text">Consulta el ranking en vivo de Tenis.</p>
+                        <a href="/tennisLiveRanking" class="btn btn-primary">Ir al Ranking</a>
+                        <a href="#" class="btn btn-primary">Documentación</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">API v1 Tennis Twitch</h5>
+                        <p class="card-text">Accede a la API v1 de Tenis en Twitch.</p>
+                        <a href="/api/v1/tennis-twitch" class="btn btn-primary">Ir a la API</a>
+                        <a href="#" class="btn btn-primary">Documentación</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">API v1 Tennis Women</h5>
+                        <p class="card-text">Accede a la API v1 de Tenis Femenino.</p>
+                        <a href="/api/v1/tennisWomen" class="btn btn-primary">Ir a la API</a>
+                        <a href="#" class="btn btn-primary">Documentación</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer bg-light mt-5 py-3">
+        <div class="container text-center">
+            <p>Visita el repositorio en GitHub: <a href="https://github.com/Antoniiosc7/TFG-Server">https://github.com/Antoniiosc7/TFG-Server</a></p>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </body>
-    
 </html>
