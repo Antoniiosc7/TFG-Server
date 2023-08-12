@@ -35,5 +35,5 @@ const tennisWomen = require("./src/tennisWomen");
 tennisWomen.register(app);
 
 db_nba_stats2 = new Datastore();
-const nbaStats_API_v2 = require("./src/back/nba-stats/nba-stats_v2");
+const nbaStats_API_v2 = require("./src/nba-stats_v2");
 nbaStats_API_v2.register(app,db_nba_stats2);
