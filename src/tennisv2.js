@@ -1,151 +1,144 @@
-const bodyParser = require("body-parser");
+var Datastore = require("nedb");
+var db = new Datastore();
+var BASE_API_PATH = "/api/v2/tennis"; 
 const express = require("express");
 const app = express();
-const BASI_API_TENNIS2 = "/api/v2/tennis";
-//API Antonio Saborido
+
+var premierStats = [];
 
 
-    // ########################################################### //
+var paths='/remoteAPI';
 
-    //                          API V2                             //
-                        //(BASI_API_TENNIS22)
 
-    // ########################################################### //
 
-var tennis = [
-    {
-        country: "spain",
-        year: 2017,
-        most_grand_slam: 2,
-        masters_finals: 2,
-        olympic_gold_medals: 0
-    },
-    {
-        country: "spain",
-        year: 2019,
-        most_grand_slam: 2,
-        masters_finals: 2,
-        olympic_gold_medals: 0
-    },
-    {
-        country: "great-britain",
-        year: 2012,
-        most_grand_slam: 1,
-        masters_finals: 0,
-        olympic_gold_medals: 1
-    },
-    {
-        country: "russia",
-        year: 2021,
-        most_grand_slam: 1,
-        masters_finals: 1,
-        olympic_gold_medals: 0
-    },
-    {
-        country: "swirtzeland",
-        year: 2008,
-        most_grand_slam: 1,
-        masters_finals: 0,
-        olympic_gold_medals: 0
-    },
-    {
-        country: "serbia",
-        year: 2019,
-        most_grand_slam: 3,
-        masters_finals: 1,
-        olympic_gold_medals: 0
-    },
-    {
-        country: "russia",
-        year: 2021,
-        most_grand_slam: 1,
-        masters_finals: 1,
-        olympic_gold_medals: 0
-    },
-    {
-        country: "cameroon",
-        year: 2013,
-        most_grand_slam: 0,
-        masters_finals: 0,
-        olympic_gold_medals: 0
-    },
-    {
-        country: "belize",
-        year: 2000,
-        most_grand_slam: 0,
-        masters_finals: 0,
-        olympic_gold_medals: 0
-    },
-    {
-        country: "pakistan",
-        year: 2019,
-        most_grand_slam: 0,
-        masters_finals: 0,
-        olympic_gold_medals: 0
-    },
-    {
-        country: "andorra",
-        year: 2010,
-        most_grand_slam: 0,
-        masters_finals: 0,
-        olympic_gold_medals: 0
-    },
-    {
-        country: "albania",
-        year: 2018,
-        most_grand_slam: 0,
-        masters_finals: 0,
-        olympic_gold_medals: 0
-    },
-    {
-        country: "paraguay",
-        year: 2008,
-        most_grand_slam: 0,
-        masters_finals: 0,
-        olympic_gold_medals: 0
-    }
-]
 
-module.exports.register = (app,db) =>{
-    /* 
-        API para Tennis
-    */
+module.exports.register = (app) => {
     
-    // Cargar datos iniciales
-    
-    app.get(BASI_API_TENNIS2+"/loadInitialData",(req, res)=>{
+    //Portal de Documentacion
 
-        db.find({},function(err, filteredList){
+    app.get(BASE_API_PATH+"/docs",(req,res)=>
+    {
+        res.redirect("https://documenter.getpostman.com/view/19586040/UyrBiFce");
+    });
 
-            if(err){
-                res.sendStatus(500, "ERROR EN CLIENTE");
-                return;
+    db.insert(premierStats);
+
+    //Constructor
+
+     //GET inicial (loadInitialData) para inicializar la BD (constructor)
+
+     app.get(BASE_API_PATH+"/loadInitialData",(req,res)=>{
+
+        var statsIni = [
+            {
+                country: "spain",
+                year: 2017,
+                most_grand_slam: 2,
+                masters_finals: 2,
+                olympic_gold_medals: 0
+            },
+            {
+                country: "spain",
+                year: 2019,
+                most_grand_slam: 2,
+                masters_finals: 2,
+                olympic_gold_medals: 0
+            },
+            {
+                country: "great-britain",
+                year: 2012,
+                most_grand_slam: 1,
+                masters_finals: 0,
+                olympic_gold_medals: 1
+            },
+            {
+                country: "russia",
+                year: 2021,
+                most_grand_slam: 1,
+                masters_finals: 1,
+                olympic_gold_medals: 0
+            },
+            {
+                country: "swirtzeland",
+                year: 2008,
+                most_grand_slam: 1,
+                masters_finals: 0,
+                olympic_gold_medals: 0
+            },
+            {
+                country: "serbia",
+                year: 2019,
+                most_grand_slam: 3,
+                masters_finals: 1,
+                olympic_gold_medals: 0
+            },
+            {
+                country: "russia",
+                year: 2021,
+                most_grand_slam: 1,
+                masters_finals: 1,
+                olympic_gold_medals: 0
+            },
+            {
+                country: "cameroon",
+                year: 2013,
+                most_grand_slam: 0,
+                masters_finals: 0,
+                olympic_gold_medals: 0
+            },
+            {
+                country: "belize",
+                year: 2000,
+                most_grand_slam: 0,
+                masters_finals: 0,
+                olympic_gold_medals: 0
+            },
+            {
+                country: "pakistan",
+                year: 2019,
+                most_grand_slam: 0,
+                masters_finals: 0,
+                olympic_gold_medals: 0
+            },
+            {
+                country: "andorra",
+                year: 2010,
+                most_grand_slam: 0,
+                masters_finals: 0,
+                olympic_gold_medals: 0
+            },
+            {
+                country: "albania",
+                year: 2018,
+                most_grand_slam: 0,
+                masters_finals: 0,
+                olympic_gold_medals: 0
+            },
+            {
+                country: "paraguay",
+                year: 2008,
+                most_grand_slam: 0,
+                masters_finals: 0,
+                olympic_gold_medals: 0
             }
-            if (filteredList==0){
-                for(var i = 0; i<tennis.length;i++){
-                    db.insert(tennis[i]);
-                }
-                res.sendStatus(200, "OK.")
-                return;
-            }else{
-                res.sendStatus(200, "Ya inicializados")
-            }
+        ];
+
+        // Inicialización base de datos
+        //Borra todo lo anterior para evitar duplicidades al hacer loadInitialData
+        db.remove({}, { multi: true }, function (err, numRemoved) {
         });
-        
-    })
-    
-    // Documentos
-    
-    app.get(BASI_API_TENNIS2+"/docs",(req,res)=>
-    {
-        res.redirect("https://documenter.getpostman.com/view/19996738/UVysxGDk")
-    })
-    
-    // GETs
-    
-    // GET global y GET por año
-    
-    app.get(BASI_API_TENNIS2,(req, res)=>{
+
+        // Inserta los datos iniciales en la base de datos
+        db.insert(statsIni);
+
+        res.send(JSON.stringify(statsIni,null,2));
+
+
+    });
+
+
+    //GET 
+    app.get(BASE_API_PATH,(req, res)=>{
     
         var year = req.query.year;
         var from = req.query.from;
@@ -232,7 +225,7 @@ module.exports.register = (app,db) =>{
     
     // GET por país
     
-    app.get(BASI_API_TENNIS2+"/:country",(req, res)=>{
+    app.get(BASE_API_PATH+"/:country",(req, res)=>{
     
         var country =req.params.country;
         var from = req.query.from;
@@ -318,7 +311,7 @@ module.exports.register = (app,db) =>{
     
     // GET por país y año
     
-    app.get(BASI_API_TENNIS2+"/:country/:year",(req, res)=>{
+    app.get(BASE_API_PATH+"/:country/:year",(req, res)=>{
     
         var country =req.params.country
         var year = req.params.year
@@ -369,49 +362,47 @@ module.exports.register = (app,db) =>{
         });
 
     })
-    
-    // POSTs
-    
-    // POST para lista de recursos
-    
-    app.post(BASI_API_TENNIS2,(req, res)=>{
+    /*------------------- POSTs -------------------*/
+
+
+    //POST A LA LISTA DE RECURSOS DE PREMIER-LEAGUE-STATS 
+    app.post(BASE_API_PATH,(req,res)=>{
+        var dataNew = req.body;
+        var countryNew = req.body.country;
+        var yearNew = req.body.year;
         
-        if(comprobar_body(req)){
-            res.sendStatus(400,"BAD REQUEST - Parametros incorrectos");
-        }else{
-
-            db.find({},function(err,filteredList){
-
-                if(err){
-                    res.sendStatus(500, "ERROR EN CLIENTE");
-                    return;
+        
+        db.find({ country: countryNew, year: yearNew }, (err, data) => {
+            if (err) {
+                res.sendStatus(500, "ERROR");
+            } else {
+                if (data.length == 0) {
+                    if (!dataNew.country ||
+                        !dataNew.year ||
+                        !dataNew.most_grand_slam ||
+                        !dataNew.masters_finals ||
+                        !dataNew.olympic_gold_medals) {
+                        res.sendStatus(400,"FORMAT INCORRETCT");
+                    }else {
+                        db.insert(dataNew);
+                        res.sendStatus(201,"CREATED");                    
+                    }
+                } else {
+                    res.sendStatus(409, "CONFLICT");
                 }
+            }
+        });
+    });
 
-                filteredList = filteredList.filter((reg)=>
-                {
-                    return(req.body.country == reg.country && req.body.year == reg.year)
-                })
-            
-                if(filteredList.length != 0){
-                    res.sendStatus(409,"CONFLICT");
-                }else{
-                    db.insert(req.body);
-                    res.sendStatus(201,"CREATED");
-                }
-            })
-        }
-    
-    })
-    
-    // POST para recurso concreto
-    
-    app.post(BASI_API_TENNIS2+"/:country",(req, res)=>{
-        res.sendStatus(405,"METHOD NOT ALLOWED");
-    })
-    
-    
-    // PUTs
-    app.put(BASI_API_TENNIS2+"/:country/:year", (req,res) => {
+     //POST A UN RECURSO(No está permitido)
+     app.post(BASE_API_PATH+"/:country/:year",(req,res)=>{
+        res.sendStatus(405, "METHOD NOT ALLOWED");
+    });
+
+    /*------------------- PUTs -------------------*/
+
+     //PUT A UN RECURSO CONCRETO POR COUNTRY/YEAR
+     app.put(BASE_API_PATH+"/:country/:year", (req,res) => {
         
         var reqcountry = req.params.country;
         var reqyear = parseInt(req.params.year);
@@ -441,131 +432,43 @@ module.exports.register = (app,db) =>{
     });
 
      //PUT A UNA LISTA DE RECURSOS DE DEFENSEs STATS (Debe dar error)
-     app.put(BASI_API_TENNIS2,(req,res) => {
+     app.put(BASE_API_PATH,(req,res) => {
         res.sendStatus(405);
     });
-    /*
-// PUT de una lista de recursos
-    
-    app.put(BASI_API_TENNIS2,(req, res)=>{
-        
-        res.sendStatus(405,"METHOD NOT ALLOWED");
-    })
-    
-    // PUT de un recurso especifico
-    
-    app.put(BASI_API_TENNIS2+"/:country/:year",(req, res)=>{
-        
-        //COMPROBAMOS FORMATO JSON
 
-        if(comprobar_body(req)){
-            res.sendStatus(400,"BAD REQUEST - Parametros incorrectos");
-            return;
-        }
-        
-        var countryR = req.params.country;
-        var yearR = req.params.year;
-        var body = req.body;  
 
-        db.find({},function(err,filteredList){
-            if(err){
-                res.sendStatus(500, "ERROR EN CLIENTE");
-                return;
-            }
 
-            //COMPROBAMOS SI EXISTE EL ELEMENTO
+    /*------------------- DELETEs -------------------*/
 
-            filteredList = filteredList.filter((reg)=>
-            {
-                return (reg.country == countryR && reg.year == yearR);
-            });
-            if (filteredList==0){
-                res.sendStatus(404, "NO EXISTE");
-                return;
-            }
 
-            //COMPROBAMOS SI LOS CAMPOS ACTUALIZADOS SON IGUALES
-
-            if(countryR != body.country || yearR != body.year){
-                res.sendStatus(400,"BAD REQUEST");
-                return;
-            }
-
-            //ACTUALIZAMOS VALOR
-                
-            db.update({$and:[{country: String(countryR)}, {year: parseInt(yearR)}]}, {$set: body}, {},function(err, numUpdated) {
-                if (err) {
-                    res.sendStatus(500, "ERROR EN CLIENTE");
-                }else{
-                    res.sendStatus(200,"UPDATED");
-                }
-            });
-        })
-            
-        
-    
-    })
-    */
-    
-    
-    // DELETEs
-    
-    // DELETE de una lista de recursos
-    
-    app.delete(BASI_API_TENNIS2,(req, res)=>{
-        db.remove({}, { multi: true }, (err, numRemoved)=>{
-            if (err){
-                res.sendStatus(500,"ERROR EN CLIENTE");
-                return;
-            }
-            res.sendStatus(200,"DELETED");
-            return;
-        });
-    })
-    
-    // DELETE de un recurso especifico
-    
-    app.delete(BASI_API_TENNIS2+"/:country/:year",(req, res)=>{
-        var countryR = req.params.country;
-        var yearR = req.params.year;
-
-        db.find({country: countryR, year: parseInt(yearR)}, {}, (err, filteredList)=>{
-            if (err){
-                res.sendStatus(500,"ERROR EN CLIENTE");
-                return;
-            }
-            if(filteredList==0){
-                res.sendStatus(404,"NOT FOUND");
-                return;
-            }
-            db.remove({country: countryR, year: parseInt(yearR)}, {}, (err, numRemoved)=>{
-                if (err){
-                    res.sendStatus(500,"ERROR EN CLIENTE");
-                    return;
-                }
-            
+     //DELETE A LISTA DE RECURSOS
+     app.delete(BASE_API_PATH, (req,res) => {
+        db.remove({}, {multi: true}, (err, numDataRemoved) => {
+            if (err || numDataRemoved == 0){
+                res.sendStatus(500, "ERROR");
+            }else{
                 res.sendStatus(200,"DELETED");
-                return;
-                
-            });
+            }
         });
+    });
 
-    })
-    
-    // Método auxiliares
-    
-    function comprobar_body(req){
-        return (req.body.country == null |
-                isNaN(req.body.year) |
-                 req.body.year == null | 
-                 req.body.most_grand_slam == null | 
-                 isNaN(req.body.most_grand_slam) |
-                 req.body.masters_finals == null | 
-                 isNaN(req.body.masters_finals) |
-                 isNaN(req.body.olympic_gold_medals) |
-                 req.body.olympic_gold_medals  == null);
-    }
-    
+    //DELETE A UN RECURSO POR COUNTRY/YEAR
+    app.delete(BASE_API_PATH + "/:country/:year", (req,res)=>{
+        var reqcountry = req.params.country;
+        var reqyear = parseInt(req.params.year);
+        db.remove({country : reqcountry, year : reqyear},{multi:true}, (err, data) => {
+            if (err) {
+                res.sendStatus(500, "ERROR");
+            } else {
+                if(data != 0){
+                    res.sendStatus(200,"DELETED");
+                }else{
+                    res.sendStatus(404, "NOT FOUND");
+                }
+            }
+        });
+    });
+
     function paginacion(req, lista){
 
         var res = [];
@@ -587,9 +490,9 @@ module.exports.register = (app,db) =>{
 
         var contieneCountry = false;
         var contieneYear = false;
-        var contiene_most_grand_slam = false;
-        var contiene_masters_finals = false;
-        var contiene_olympic_gold_medals = false;
+        var contienemost_grand_slam = false;
+        var contienemasters_finals = false;
+        var contieneolympic_gold_medals = false;
         fields = fields.split(",");
 
         for(var i = 0; i<fields.length;i++){
@@ -601,13 +504,13 @@ module.exports.register = (app,db) =>{
                 contieneYear=true;
             }
             if(element=='most_grand_slam'){
-                contiene_most_grand_slam=true;
+                contienemost_grand_slam=true;
             }
             if(element=='masters_finals'){
-                contiene_masters_finals=true;
+                contienemasters_finals=true;
             }
             if(element=='olympic_gold_medals'){
-                contiene_olympic_gold_medals=true;
+                contieneolympic_gold_medals=true;
             }
         }
 
@@ -626,21 +529,21 @@ module.exports.register = (app,db) =>{
         }
 
         //most_grand_slam
-        if(!contiene_most_grand_slam){
+        if(!contienemost_grand_slam){
             lista.forEach((element)=>{
                 delete element.most_grand_slam;
             })
         }
 
         //masters_finals
-        if(!contiene_masters_finals){
+        if(!contienemasters_finals){
             lista.forEach((element)=>{
                 delete element.masters_finals;
             })
         }
 
         //olympic_gold_medals
-        if(!contiene_olympic_gold_medals){
+        if(!contieneolympic_gold_medals){
             lista.forEach((element)=>{
                 delete element.olympic_gold_medals;
             })
@@ -650,6 +553,5 @@ module.exports.register = (app,db) =>{
 
     }
 
-}
 
-
+};
