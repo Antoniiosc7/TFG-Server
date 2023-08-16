@@ -411,7 +411,7 @@ module.exports.register = (app,db) =>{
     
     
     // PUTs
-    app.put(BASE_API_PATH+"/:country/:year", (req,res) => {
+    app.put(BASI_API_TENNIS2+"/:country/:year", (req,res) => {
         
         var reqcountry = req.params.country;
         var reqyear = parseInt(req.params.year);
