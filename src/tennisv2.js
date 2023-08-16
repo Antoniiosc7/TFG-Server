@@ -411,8 +411,41 @@ module.exports.register = (app,db) =>{
     
     
     // PUTs
-    
-    // PUT de una lista de recursos
+    app.put(BASE_API_PATH+"/:country/:year", (req,res) => {
+        
+        var reqcountry = req.params.country;
+        var reqyear = parseInt(req.params.year);
+        var data = req.body;
+
+        if (Object.keys(data).length != 5) {
+            res.sendStatus(400, "BAD REQUEST");
+        }        
+        else {
+            db.update({ country: reqcountry, year: reqyear }, { $set: data }, {}, function (err, dataUpdate) {
+                if (err) {
+                    res.sendStatus(500, "ERROR");
+                } else {
+                    if (dataUpdate == 0) {
+                        res.sendStatus(404, "DATA NOT FOUND");
+                    }
+                    if(reqcountry != data.country || reqyear != data.year){
+                        res.sendStatus(400,"BAD REQUEST");
+                        return;
+                    }
+                    else {
+                        res.sendStatus(200, "OK");
+                    }
+                }
+            });
+        }
+    });
+
+     //PUT A UNA LISTA DE RECURSOS DE DEFENSEs STATS (Debe dar error)
+     app.put(BASE_API_PATH,(req,res) => {
+        res.sendStatus(405);
+    });
+    /*
+// PUT de una lista de recursos
     
     app.put(BASI_API_TENNIS2,(req, res)=>{
         
@@ -472,6 +505,8 @@ module.exports.register = (app,db) =>{
         
     
     })
+    */
+    
     
     // DELETEs
     
