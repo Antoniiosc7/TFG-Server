@@ -441,7 +441,7 @@ module.exports.register = (app,db) =>{
     });
 
      //PUT A UNA LISTA DE RECURSOS DE DEFENSEs STATS (Debe dar error)
-     app.put(BASE_API_PATH,(req,res) => {
+     app.put(BASI_API_TENNIS2,(req,res) => {
         res.sendStatus(405);
     });
     /*
