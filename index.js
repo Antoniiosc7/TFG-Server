@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require('cors');
 app.use(cors()); // This enables CORS for all routes
-const port = process.env.PORT || 8082;
+const port = process.env.PORT || 80;
 
 
 app.use("/",express.static('public'));
