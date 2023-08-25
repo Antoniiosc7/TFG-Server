@@ -3,9 +3,6 @@
 
 Este repositorio contiene una página web con enlaces a diversas APIs relacionadas con el mundo del tenis. La página está diseñada utilizando Bootstrap para una apariencia moderna y receptiva.
 
-## Capturas de Pantalla
-
-_Inserta aquí capturas de pantalla de la página._
 
 ## Enlaces a las APIs
 
@@ -53,6 +50,9 @@ _Inserta aquí capturas de pantalla de la página._
 - [Ir a la API](/api/v1/tennisWomen)
 - Documentación: [RapidAPI](https://rapidapi.com/tipsters/api/sportscore1)
 
+## Capturas de Pantalla
+
+<img src="https://i.ibb.co/RPt7QNS/imagen-2023-08-26-003813314.png" alt="imagen-2023-08-26-003813314" border="0"><img src="https://i.ibb.co/5F5xrFq/imagen-2023-08-26-004013247.png" alt="imagen-2023-08-26-004013247" border="0">
 
 *Esta página ha sido diseñada y desarrollada por [Antonio Saborido](http://antoniosaborido.es).*
 
