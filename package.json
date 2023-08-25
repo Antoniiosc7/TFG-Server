@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-tennis" : "npx newman run ./tests/tennis",
-    "test-premier" : "npx newman run ./tests/premier",
+    "test-tennis": "npx newman run ./tests/tennis",
+    "test-premier": "npx newman run ./tests/premier",
     "test": "npm run test-tennis && npm run test-premier"
   },
   "repository": {
@@ -21,6 +21,7 @@
     "express": "^4.18.2",
     "lodash": "^4.17.21",
     "nedb": "^1.8.0",
+    "newman": "^5.3.2",
     "uuid": "^9.0.0"
   }
 }
