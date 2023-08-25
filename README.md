@@ -13,7 +13,7 @@ _Inserta aquí capturas de pantalla de la página._
    - Accede a la [Web Svelte](http://antoniosaborido.es:8081)
    
 2. **Web Angular**
-   - Accede a la [Web Angular](antoniosaborido.es:8080)
+   - Accede a la [Web Angular](http://antoniosaborido.es:8080)
 
 3. **Web Vue**
    - Accede a la [Web Vue](#)
@@ -53,18 +53,8 @@ _Inserta aquí capturas de pantalla de la página._
 - [Ir a la API](/api/v1/tennisWomen)
 - Documentación: [RapidAPI](https://rapidapi.com/tipsters/api/sportscore1)
 
-## Repositorio Relacionado
-
-Visita el [repositorio en GitHub](https://github.com/Antoniiosc7/TFG-Server) para más detalles sobre el código y la implementación de esta página web.
-
-## Capturas de Pantalla
-
-_Inserta aquí capturas de pantalla de la página._
-
----
 
 *Esta página ha sido diseñada y desarrollada por [Antonio Saborido](http://antoniosaborido.es).*
 
----
 
-_Este README fue generado automáticamente por un script. Cualquier cambio en la estructura de la página puede requerir una actualización manual del README._
+
