@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-tennis": "npx newman run ./tests/tennis",
-    "test-premier": "npx newman run ./tests/premier",
+    "test-tennis": "npx newman run ./tests/tennis.json",
+    "test-premier": "npx newman run ./tests/premier.json",
     "test": "npm run test-tennis && npm run test-premier"
   },
   "repository": {

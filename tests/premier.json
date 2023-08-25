@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "0e9f6df9-5922-40b3-a79e-b8d840f990df",
 		"name": "DOC API PremierLeague V2",
+		"description": "API con datos sobre el mundo del futbol, en concreto sobre la Premier League Inglesa.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "26629937",
 		"_collection_link": "https://www.postman.com/crimson-station-718549/workspace/tfg/collection/26629937-0e9f6df9-5922-40b3-a79e-b8d840f990df?action=share&source=collection_link&creator=26629937"
@@ -640,6 +641,33 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "antoniosaborido.es/api/v2/premier-league",
+			"type": "string"
 		}
 	]
 }
