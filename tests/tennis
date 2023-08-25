@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "bf224f9d-cdf1-486f-ae09-1ff7eaa290da",
 		"name": "DOC API Tennisv2",
+		"description": "API Con datos sobre el mundo del tennis.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "26629937",
 		"_collection_link": "https://www.postman.com/crimson-station-718549/workspace/tfg/collection/26629937-bf224f9d-cdf1-486f-ae09-1ff7eaa290da?action=share&source=collection_link&creator=26629937"
@@ -409,6 +410,38 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "http://antoniosaborido.es",
+			"type": "string"
+		},
+		{
+			"key": "API",
+			"value": "v2",
+			"type": "string"
 		}
 	]
 }
