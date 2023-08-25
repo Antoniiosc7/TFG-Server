@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-tennis" : "npx newman run ./tests/tennis",
+    "test-premier" : "npx newman run ./tests/premier",
+    "test": "npm run test-tennis && npm run test-premier"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Antoniiosc7/TFG-Server"
   },
   "keywords": [],
   "author": "",

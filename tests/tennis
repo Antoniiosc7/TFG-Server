@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "bf224f9d-cdf1-486f-ae09-1ff7eaa290da",
+		"name": "DOC API Tennisv2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26629937",
+		"_collection_link": "https://www.postman.com/crimson-station-718549/workspace/tfg/collection/26629937-bf224f9d-cdf1-486f-ae09-1ff7eaa290da?action=share&source=collection_link&creator=26629937"
+	},
+	"item": [
+		{
+			"name": "GET LOAD INITIAL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/{{API}}/tennis/loadInitialData",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"{{API}}",
+						"tennis",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET / tennis",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response is an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(Array.isArray(jsonData)).to.eql(true);\r",
+							"});\r",
+							"pm.test(\"Response has data\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.be.at.least(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/{{API}}/tennis",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"{{API}}",
+						"tennis"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET KOREA 2021 (FAILED 404)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404. Not Found.\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/{{API}}/tennis/korea/2021",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"{{API}}",
+						"tennis",
+						"korea",
+						"2021"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET KOREA 2021 (FAIL)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404. NOT FOUND\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/{{API}}/tennis/korea/2021",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"{{API}}",
+						"tennis",
+						"korea",
+						"2021"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST SERBIA FAILED 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"country\": \"letuva\",\r\n    \"year\": 2019,\r\n    \"most_grand_slam\": 1,\r\n    \"masters_finals\": 1,\r\n    \"olympic_gold_medals\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/{{API}}/tennis/serbia/2021",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"{{API}}",
+						"tennis",
+						"serbia",
+						"2021"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /tennis FAILED 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/{{API}}/tennis/",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"{{API}}",
+						"tennis",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET SERBIA 2019",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/{{API}}/tennis/serbia/2019",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"{{API}}",
+						"tennis",
+						"serbia",
+						"2019"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ?=year2019",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/{{API}}/tennis?year=2019",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"{{API}}",
+						"tennis"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2019"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET con from y to",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/{{API}}/tennis?from=2014&to=2020",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"{{API}}",
+						"tennis"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2014"
+						},
+						{
+							"key": "to",
+							"value": "2020"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET con paginación",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/{{API}}/tennis?offset=2&limit=3",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"{{API}}",
+						"tennis"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "2"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE ALL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/{{API}}/tennis",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"{{API}}",
+						"tennis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET NULL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response is an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(Array.isArray(jsonData)).to.eql(true);\r",
+							"});\r",
+							"pm.test(\"Response has no data\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.be.at.most(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/{{API}}/tennis",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"{{API}}",
+						"tennis"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

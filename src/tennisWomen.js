@@ -16,8 +16,8 @@ module.exports.register = (app) => {
     url: 'https://sportscore1.p.rapidapi.com/tennis-rankings/wta',
     params: {page: '1'},
     headers: {
-      'X-RapidAPI-Host': 'sportscore1.p.rapidapi.com',
-      'X-RapidAPI-Key': '437bff414bmsh9f6e0dd49e648d5p1b29bejsn0776a44f8da0'
+      //'X-RapidAPI-Host': 'sportscore1.p.rapidapi.com',
+      //'X-RapidAPI-Key': '437bff414bmsh9f6e0dd49e648d5p1b29bejsn0776a44f8da0'
     }
   };
 
