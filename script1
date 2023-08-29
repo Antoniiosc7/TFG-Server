@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo nohup node index.js &
+echo "Servidor base ejecutandose en puerto 80"
