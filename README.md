@@ -3,6 +3,19 @@
 
 Este repositorio contiene una página web con enlaces a diversas APIs relacionadas con el mundo del tenis. La página está diseñada utilizando Bootstrap para una apariencia moderna y receptiva.
 
+## Arrancar con Docker:
+
+-  [docker build -t api .]
+
+-  [docker run -d -p 8082:8082 api]
+
+(Se iniciará en el puerto 8082)
+
+## Arrancar en local
+
+- ["nohup node index.js &" / "pm2 start index.js"]
+
+(Utilizo nohup/pm2 para que el proceso siga abierto aun cuando se cierre la terminal, y también se iniciará en el puerto 8082)
 
 ## Enlaces a las APIs
 
@@ -17,6 +30,12 @@ Este repositorio contiene una página web con enlaces a diversas APIs relacionad
 
 4. **Web React**
    - Accede a la [Web React](#)
+
+4. **Web Grafana**
+   - Accede a [Grafana](http://antoniosaborido.es:3000)
+
+4. **App de notas**
+   - Accede a la [App de notas](http://antoniosaborido.es:5080)
 
 ## APIs Disponibles
 
