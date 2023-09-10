@@ -1,4 +1,5 @@
 #!/bin/bash
 
-sudo nohup node index.js &
+nohup node index.js &
+#nohup http-server public --port 80 --cors &
 echo "Servidor base ejecutandose en puerto 80"

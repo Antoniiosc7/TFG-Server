@@ -2,8 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require('cors');
 app.use(cors()); // This enables CORS for all routes
-const port = process.env.PORT || 8082;
-const errorHandler = require('errorhandler')
+var errorHandler = require('errorhandler')const port = process.env.PORT || 8082;
 
 app.use(errorHandler({ dumpExceptions: true, showStack: true }));
 
@@ -30,11 +29,11 @@ db_premier = new Datastore();
 const premierAPI = require("./src/premier-league.js"); 
 premierAPI.register(app,db_premier);
 
-//const tennislivedata = require("./src/tennislivedata");
-//tennislivedata.register(app);
+const tennislivedata = require("./src/tennislivedata");
+tennislivedata.register(app);
 
-//const tennisWomen = require("./src/tennisWomen");
-//tennisWomen.register(app);
+const tennisWomen = require("./src/tennisWomen");
+tennisWomen.register(app);
 
 db_nba_stats2 = new Datastore();
 const nbaStats_API_v2 = require("./src/nba-stats_v2");
